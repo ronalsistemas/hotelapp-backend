@@ -13,7 +13,7 @@ public class HotelDTO {
     private Integer idHotel;
 
     @NotNull
-    @Size(min = 3, max = 100)
+    @Size(min = 3, max = 50, message = "{name.size}")
     private String name;
 
     @NotNull
@@ -21,12 +21,12 @@ public class HotelDTO {
     private String address;
 
     @NotNull
-    @Pattern(regexp = "[0-9]+")
+    @Pattern(regexp = "[0-9]+", message = "{phone.regex}")
     @Size(min = 7, max = 20)
     private String phone;
 
     @NotNull
-    @Email
+    @Email(message = "{email.valid}")
     private String email;
 
     @NotNull

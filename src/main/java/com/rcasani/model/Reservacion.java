@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -25,6 +26,10 @@ public class Reservacion {
     @JoinColumn(name = "id_cliente", nullable = false, foreignKey = @ForeignKey(name = "fk_reservacion_cliente"))
     private Cliente customer;
 
+    @ManyToOne
+    @JoinColumn(name = "id_usuario", nullable = false, foreignKey = @ForeignKey(name = "fk_reservacion_usuario"))
+    private Usuario usuario;
+
     @Column(name = "fecha_reservacion")
     private LocalDateTime reservationDate;
 
@@ -39,4 +44,7 @@ public class Reservacion {
 
     @Column(name = "total_reservacion", precision = 10, scale = 2)
     private BigDecimal total;
+
+    @OneToMany(mappedBy = "reservation", cascade = CascadeType.ALL) //orphanRemoval = true
+    private List<DetalleReserva> details;
 }

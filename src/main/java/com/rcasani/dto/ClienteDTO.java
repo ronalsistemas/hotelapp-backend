@@ -1,0 +1,25 @@
+package com.rcasani.dto;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class ClienteDTO {
+
+    private Integer idCustomer;
+
+    private String firstName;
+
+    private String lastName;
+
+    private String dni;
+
+    private String phone;
+
+    private String email;
+
+    private String address;
+}
